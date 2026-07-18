@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sekai Trainer - Project SEKAI Chart Viewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo-section">
+        <h1 class="logo">🎵 Sekai Trainer</h1>
+      </div>
+      <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+        <span class="toggle-icon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+    <!-- Search Bar -->
+    <div class="search-container">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-bar"
+        placeholder="Search songs... (Try 'KING' or 'Tell Your World')"
+        aria-label="Search songs"
+      >
+      <div class="search-results-count" id="searchCount"></div>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="content-grid">
+      <!-- Song List Section -->
+      <section class="song-section">
+        <h2 class="section-title">Chart Selection</h2>
+        <div class="song-list" id="songList" role="listbox">
+          <!-- Songs loaded by JavaScript -->
+        </div>
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <p>No songs found. Try a different search term.</p>
+        </div>
+      </section>
+
+      <!-- Video Player Section -->
+      <section class="player-section">
+        <h2 class="section-title">Chart Preview</h2>
+        
+        <!-- Difficulty Selector -->
+        <div class="difficulty-selector">
+          <button class="difficulty-btn" data-difficulty="expert" aria-pressed="true">
+            <span class="difficulty-label">Expert</span>
+            <span class="difficulty-icon">⭐</span>
+          </button>
+          <button class="difficulty-btn" data-difficulty="master" aria-pressed="false">
+            <span class="difficulty-label">Master</span>
+            <span class="difficulty-icon">⭐⭐</span>
+          </button>
+          <button class="difficulty-btn" data-difficulty="append" aria-pressed="false">
+            <span class="difficulty-label">Append</span>
+            <span class="difficulty-icon">✨</span>
+          </button>
+        </div>
+
+        <!-- Video Player -->
+        <div class="video-player">
+          <div class="video-placeholder" id="videoPlaceholder">
+            <div class="placeholder-content">
+              <p class="placeholder-icon">📺</p>
+              <p>Select a song to start</p>
+            </div>
+          </div>
+          <iframe
+            id="videoPlayer"
+            class="video-frame"
+            src=""
+            title="Chart Video Player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="display: none;"
+          ></iframe>
+        </div>
+
+        <!-- Song Info -->
+        <div class="song-info" id="songInfo" style="display: none;">
+          <h3 id="songTitle"></h3>
+          <p id="songArtist"></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Sekai Trainer - A training tool for Project SEKAI players</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
